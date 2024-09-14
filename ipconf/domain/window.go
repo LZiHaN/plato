@@ -5,10 +5,13 @@ const (
 )
 
 type stateWindow struct {
+	// 计算窗口队列
 	stateQueue []*Stat
-	statChan   chan *Stat
-	sumStat    *Stat
-	idx        int64
+	// 对于已存在的 gateway，会通过 chan 将 state 发送过来
+	statChan chan *Stat
+	// 最新的窗口和
+	sumStat *Stat
+	idx     int64
 }
 
 func newStateWindow() *stateWindow {

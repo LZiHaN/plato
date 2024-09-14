@@ -6,12 +6,14 @@ import (
 )
 
 type Endport struct {
-	IP          string       `json:"ip"`
-	Port        string       `json:"port"`
-	ActiveSorce float64      `json:"-"`
-	StaticSorce float64      `json:"-"`
-	Stats       *Stat        `json:"-"`
-	window      *stateWindow `json:"-"`
+	IP          string  `json:"ip"`
+	Port        string  `json:"port"`
+	ActiveSorce float64 `json:"-"`
+	StaticSorce float64 `json:"-"`
+	// gateway 计算后的带宽消耗和连接数
+	Stats *Stat `json:"-"`
+	// 带宽消耗和连接数的计算窗口
+	window *stateWindow `json:"-"`
 }
 
 func NewEndport(ip, port string) *Endport {

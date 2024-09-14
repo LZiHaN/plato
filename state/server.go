@@ -33,9 +33,11 @@ func RunMain(path string) {
 		prpc.WithServiceName(config.GetStateServiceName()),
 		prpc.WithIP(config.GetSateServiceAddr()),
 		prpc.WithPort(config.GetSateServerPort()), prpc.WithWeight(config.GetSateRPCWeight()))
+
 	s.RegisterService(func(server *grpc.Server) {
 		service.RegisterStateServer(server, cs.server)
 	})
+
 	// 启动 rpc server
 	s.Start(ctx)
 }

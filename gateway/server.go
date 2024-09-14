@@ -28,13 +28,17 @@ func RunMain(path string) {
 	}
 	initWorkPoll()
 	initEpoll(ln, runProc)
+
 	fmt.Println("-------------im gateway stated------------")
 	cmdChannel = make(chan *service.CmdContext, config.GetGatewayCmdChannelNum())
+
 	s := prpc.NewPServer(
 		prpc.WithServiceName(config.GetGatewayServiceName()),
 		prpc.WithIP(config.GetGatewayServiceAddr()),
 		prpc.WithPort(config.GetGatewayRPCServerPort()), prpc.WithWeight(config.GetGatewayRPCWeight()))
+
 	fmt.Println(config.GetGatewayServiceName(), config.GetGatewayServiceAddr(), config.GetGatewayRPCServerPort(), config.GetGatewayRPCWeight())
+
 	s.RegisterService(func(server *grpc.Server) {
 		service.RegisterGatewayServer(server, &service.Service{CmdChannel: cmdChannel})
 	})

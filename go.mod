@@ -9,6 +9,9 @@ require (
 	github.com/rocket049/gocui v0.3.2
 	github.com/spf13/cobra v1.5.0
 	google.golang.org/protobuf v1.28.1
+	gorm.io/driver/mysql v1.5.4
+	gorm.io/driver/sqlite v1.5.5
+	gorm.io/gorm v1.25.7
 )
 
 require (
@@ -35,9 +38,6 @@ require (
 	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/net v0.2.0 // indirect
 	google.golang.org/genproto v0.0.0-20220915135415-7fd63a7952de // indirect
-	gorm.io/driver/mysql v1.5.4 // indirect
-	gorm.io/driver/sqlite v1.5.5 // indirect
-	gorm.io/gorm v1.25.7 // indirect
 )
 
 require (
@@ -87,7 +87,7 @@ require (
 	go.opentelemetry.io/otel/trace v1.9.0
 	go.uber.org/zap v1.22.0
 	golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
-	golang.org/x/sys v0.2.0
+	golang.org/x/sys v0.25.0
 	golang.org/x/text v0.4.0 // indirect
 	google.golang.org/grpc v1.48.0
 	gopkg.in/ini.v1 v1.66.4 // indirect
